@@ -13,6 +13,11 @@ def index():
     # return render_template('index.html', cats=data)
     return req.content
 
+@app.route('/cats', methods=['GET'])
+def getCats():
+    req = requests.get('https://cat-fact.herokuapp.com/facts')
+    return req.content
+
 if __name__ == "__main__":
    app.run(port=8080, debug=True)
 
